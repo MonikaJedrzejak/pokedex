@@ -1,9 +1,11 @@
+import List from './components/List';
 import './scss/main.scss';
 
 function App() {
   return (
-    <div> Hello
-    </div>
+    <>
+    <List/>
+    </>
   );
 }
 

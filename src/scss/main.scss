@@ -1,3 +1,30 @@
+@import "./reset";
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Tourney:wght@300&display=swap");
+
+$color-red: #cc0000;
+$color-blue: #3b4cca;
+$color-yellow: #ffde00;
+
 body {
-	color: tomato;
+	color: #ff0000;
+}
+
+.header {
+	background-color: $color-red;
+	height: 3rem;
+	font-family: "Tourney", cursive;
+	font-weight: 300;
+	font-size: 2em;
+	color: white;
+}
+
+.search-bar {
+	color: black;
+	height: 2rem;
+	font-size: 0.5em;
+	font-family: "Roboto", sans-serif;
+	width: 10rem;
+	border-radius: 5px;
+	border-style: none;
 }
