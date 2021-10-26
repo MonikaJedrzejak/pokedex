@@ -23,9 +23,7 @@ export default function PokemonInfo({ name }) {
 			.catch((err) => console.log(err));
 	}, [name]);
 
-	const { types, stats } = pokemon;
-	console.log(types);
-	console.log(stats);
+	const { id, types, stats } = pokemon;
 
 	return (
 		<div className="container">
@@ -33,7 +31,7 @@ export default function PokemonInfo({ name }) {
 				<div className="pokemon-name m-2 p-2 text-center h5">{name}</div>
 				<div className="pokemon-info-container row m-2">
 					<div className="pokemon-info-col col-6 text-center">
-						<PokemonPhoto data={pokemon} />
+						<PokemonPhoto id={id} name={name} />
 					</div>
 					<div className="pokemon-info-col col-6 text-center">
 						<PokemonStats data={stats} />
