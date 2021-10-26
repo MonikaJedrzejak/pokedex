@@ -2,12 +2,15 @@ const API_URL_ALL_POKEMON = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=11
 
 export function getAllPokemon(cb) {
     fetch(`${API_URL_ALL_POKEMON}`)
-        .then(res =>
-            res.json())
-        .then(data => {
-            cb(data)
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        }
+        throw new Error("Ups...");
+    })
+    .then(data => {
+        cb(data);
+    })
+    .catch((err) => console.log(err));
 }
+

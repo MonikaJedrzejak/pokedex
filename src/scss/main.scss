@@ -5,26 +5,33 @@
 $color-red: #cc0000;
 $color-blue: #3b4cca;
 $color-yellow: #ffde00;
+$color-red-2: #ff0000;
 
-body {
-	color: #ff0000;
+.body{
+	font-family: "Roboto", sans-serif;
 }
-
 .header {
 	background-color: $color-red;
-	height: 3rem;
+	// height: 3rem;
 	font-family: "Tourney", cursive;
 	font-weight: 300;
-	font-size: 2em;
+	font-size: 2rem;
 	color: white;
 }
-
 .search-bar {
+	.fa-search {
+		font-size: 0.8em;
+	}
+}
+.search-input {
 	color: black;
 	height: 2rem;
 	font-size: 0.5em;
 	font-family: "Roboto", sans-serif;
-	width: 10rem;
+	width: 80%;
 	border-radius: 5px;
 	border-style: none;
+}
+.pokemon-link {
+	color: $color-blue;
 }

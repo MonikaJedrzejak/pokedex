@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 // import { getAllPokemon } from "../api/operations";
-import { Spinner } from "react-bootstrap";
+import { Spinner, ListGroup } from "react-bootstrap";
 import Header from "./Header.js";
 
 export default function List() {
 	const [pokemons, setPokemons] = useState([]);
 	const [searchQuery, setSearchQuery] = useState("");
+
+	// useEffect(() => {
+	// 	getAllPokemon(setPokemons);
+	// }, [])
 
 	useEffect(() => {
 		fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118")
@@ -16,7 +20,6 @@ export default function List() {
 				throw new Error("Ups...");
 			})
 			.then(({ results }) => {
-				console.log(results);
 				setPokemons(results);
 			})
 			.catch((err) => console.log(err));
@@ -38,13 +41,16 @@ export default function List() {
 	return (
 		<>
 			<Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
 			<div className="container">
-				<ul className="list">
+				<ListGroup className="w-100">
 					{pokemons.length ? (
 						newList.map(({ name, url }, idx) => (
-							<li key={url}>
-								#{idx + 1} {name}
-							</li>
+							<a href={`/pokemon/${name}`} className="pokemon-link">
+								<ListGroup.Item key={url}>
+								{name}
+								</ListGroup.Item>
+							</a>
 						))
 					) : (
 						<>
@@ -53,30 +59,9 @@ export default function List() {
 							<Spinner animation="grow" variant="warning" />
 						</>
 					)}
-				</ul>
+				</ListGroup>
 			</div>
 		</>
 	);
 
-	// const [pokemonList, setPokemonList] = useState([]);
-
-	// useEffect(() => {
-	// 	getAllPokemon(setPokemonList);
-	// }, []);
-
-	// // console.log(pokemonList);
-	// const lll = pokemonList.results;
-	// // const ddd = lll.results;
-	// console.log(typeof lll);
-	// console.log(lll);
-
-	// return (
-	// 	<>
-	// 		{/* <ul>
-	//         {lll.map((el,idx) => {
-	//             <li key={idx}>{el.name}</li>
-	//         })}
-	//     </ul> */}
-	// 	</>
-	// );
 }
