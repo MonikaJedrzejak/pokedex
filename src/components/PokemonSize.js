@@ -9,8 +9,8 @@ export default function PokemonSize({data}) {
     return (
         <div>
             <p>ID: {pokeInfo.id}</p>
-            <p>WEIGHT: {pokeInfo.weight}</p>
-            <p>HEIGHT: {pokeInfo.height}</p>
+            <p>WEIGHT: {pokeInfo.weight / 10} kg</p>
+            <p>HEIGHT: {pokeInfo.height / 10} m</p>
         </div>
     )
 }

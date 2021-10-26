@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokemonPhoto from "./PokemonPhoto";
-// import PokemonType from "./PokemonType";
+import PokemonStats from "./PokemonStats";
+import PokemonType from "./PokemonType";
 import PokemonSize from "./PokemonSize";
 // import { Figure } from "react-bootstrap";
 
@@ -16,11 +17,15 @@ export default function PokemonInfo({ name }) {
 				throw new Error("Ups...");
 			})
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				setPokemon(data);
 			})
 			.catch((err) => console.log(err));
 	}, [name]);
+
+	const { types, stats } = pokemon;
+	console.log(types);
+	console.log(stats);
 
 	return (
 		<div className="container">
@@ -31,13 +36,13 @@ export default function PokemonInfo({ name }) {
 						<PokemonPhoto data={pokemon} />
 					</div>
 					<div className="pokemon-info-col col-6 text-center">
-						
-						{/* <PokemonType data={pokemon}/> */}
+						<PokemonStats data={stats} />
+						<PokemonType data={types} />
 					</div>
 				</div>
-                <div className="pokemon-info-col row m-2">
-                    <PokemonSize data={pokemon} />
-                </div>
+				<div className="pokemon-info-col row m-2">
+					<PokemonSize data={pokemon} />
+				</div>
 			</div>
 		</div>
 	);
