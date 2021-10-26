@@ -46,7 +46,7 @@ export default function List() {
 				<ListGroup className="w-100">
 					{pokemons.length ? (
 						newList.map(({ name, url }, idx) => (
-							<a href={`/pokemon/${name}`} className="pokemon-link" key={url}>
+							<a href={`/pokemons/${name}`} className="pokemon-link" key={url}>
 								<ListGroup.Item key={url}>
 								{name}
 								</ListGroup.Item>

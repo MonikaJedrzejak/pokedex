@@ -10,7 +10,7 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={List}/>
-                    <Route exact path="/pokemon/:pokemonName" component={Pokemon}/>
+                    <Route exact path="/pokemons/:pokemonName" component={Pokemon}/>
                     {/* <Route component={NotFound}/> */}
                 </Switch>
             </BrowserRouter>
