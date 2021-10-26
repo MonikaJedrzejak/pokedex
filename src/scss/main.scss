@@ -7,7 +7,7 @@ $color-blue: #3b4cca;
 $color-yellow: #ffde00;
 $color-red-2: #ff0000;
 
-.body{
+.body {
 	font-family: "Roboto", sans-serif;
 }
 .header {
@@ -17,6 +17,9 @@ $color-red-2: #ff0000;
 	font-weight: 300;
 	font-size: 2rem;
 	color: white;
+}
+.header-link:hover {
+	text-decoration: none;
 }
 .search-bar {
 	.fa-search {
@@ -34,4 +37,15 @@ $color-red-2: #ff0000;
 }
 .pokemon-link {
 	color: $color-blue;
+}
+
+.pokemon-info {
+	color: black;
+	border: 2px solid $color-red;
+}
+.pokemon-name {
+	border: 2px solid $color-yellow;
+}
+.pokemon-info-col {
+	border: 2px solid $color-blue;
 }
