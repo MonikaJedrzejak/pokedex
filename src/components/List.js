@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Spinner, ListGroup } from "react-bootstrap";
 import Header from "./Header.js";
+import ListItem from "./ListItem.js";
 
 export default function List() {
 	const [pokemons, setPokemons] = useState([]);
 	const [searchQuery, setSearchQuery] = useState("");
-	let id =0;
-
-	// useEffect(() => {
-	// 	getAllPokemon(setPokemons);
-	// }, [])
 
 	useEffect(() => {
 		fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118")
@@ -20,7 +16,7 @@ export default function List() {
 				throw new Error("Ups...");
 			})
 			.then(({ results }) => {
-				console.log(results);
+				//console.log(results);
 				setPokemons(results);
 			})
 			.catch((err) => console.log(err));
@@ -46,14 +42,8 @@ export default function List() {
 			<div className="container d-flex justify-content-center">
 				<ListGroup className="w-100 font-weight-bold">
 					{pokemons.length ? (
-						newList.map(({ name, url }) => (
-							<a href={`/pokemons/${name}`} className="pokemon-link" key={url}>
-								<ListGroup.Item key={url} className="d-flex justify-content-around align-items-center">
-								<span>{'#'}{id = url.slice(34,-1)}</span>
-								<span className="text-center text-capitalize">{name}</span>
-								<img className="list-image img-thumbnail" alt={name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}/>
-								</ListGroup.Item>
-							</a>
+						newList.map((el) => (
+								<li className="list-item" key={el.url}><ListItem data={el} className="d-flex justify-content-around"/></li>
 						))
 					) : (
 						<div className="d-flex justify-content-center py-5">

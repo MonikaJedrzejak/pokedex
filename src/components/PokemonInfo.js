@@ -27,7 +27,7 @@ export default function PokemonInfo({ name }) {
 
 	return (
 		<div className="container">
-			<div className="pokemon-info m-3 p-3">
+			<div className="pokemon-info m-2 p-2">
 				<div className="pokemon-name m-2 p-2 text-center h5 text-capitalize">{name} <span>{` #${id}`}</span></div>
 				<div className="row m-2 d-flex justify-content-center">
 					<PokemonType data={types} />
@@ -41,7 +41,6 @@ export default function PokemonInfo({ name }) {
 						<PokemonStats data={stats} />
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	);
