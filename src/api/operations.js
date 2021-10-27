@@ -14,3 +14,17 @@ export function getAllPokemon(cb) {
     .catch((err) => console.log(err));
 }
 
+export function getIdPokemon(name) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    .then((res) => {
+        if (res.ok) {
+            return res.json();
+        }
+        throw new Error("Ups...");
+    })
+    .then((data) => {
+        // console.log(data);
+        return data.id
+    })
+    .catch((err) => console.log(err));
+}
