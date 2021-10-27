@@ -23,6 +23,7 @@
 - React router
 - SASS
 - React Bootsrtap
+- React Lazyload
 
 ## Features
 
