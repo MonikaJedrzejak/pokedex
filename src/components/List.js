@@ -49,18 +49,18 @@ export default function List() {
 						newList.map(({ name, url }) => (
 							<a href={`/pokemons/${name}`} className="pokemon-link" key={url}>
 								<ListGroup.Item key={url} className="d-flex justify-content-around align-items-center">
-								<span>{id = url.slice(34,-1)}</span>
-								<span className="text-center">{name}</span>
+								<span>{'#'}{id = url.slice(34,-1)}</span>
+								<span className="text-center text-capitalize">{name}</span>
 								<img className="list-image img-thumbnail" alt={name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}/>
 								</ListGroup.Item>
 							</a>
 						))
 					) : (
-						<>
+						<div className="d-flex justify-content-center py-5">
 							<Spinner animation="grow" variant="primary" />
 							<Spinner animation="grow" variant="danger" />
 							<Spinner animation="grow" variant="warning" />
-						</>
+						</div>
 					)}
 				</ListGroup>
 			</div>

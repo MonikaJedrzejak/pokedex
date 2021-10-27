@@ -28,19 +28,20 @@ export default function PokemonInfo({ name }) {
 	return (
 		<div className="container">
 			<div className="pokemon-info m-3 p-3">
-				<div className="pokemon-name m-2 p-2 text-center h5">{name}</div>
+				<div className="pokemon-name m-2 p-2 text-center h5 text-capitalize">{name} <span>{` #${id}`}</span></div>
+				<div className="row m-2 d-flex justify-content-center">
+					<PokemonType data={types} />
+				</div>
 				<div className="pokemon-info-container row m-2">
-					<div className="pokemon-info-col col-6 text-center">
+					<div className="col-md-6 text-center">
 						<PokemonPhoto id={id} name={name} />
 					</div>
-					<div className="pokemon-info-col col-6 text-center">
+					<div className="col-md-6 text-center">
+						<PokemonSize data={pokemon} />
 						<PokemonStats data={stats} />
-						<PokemonType data={types} />
 					</div>
 				</div>
-				<div className="pokemon-info-col row m-2">
-					<PokemonSize data={pokemon} />
-				</div>
+				
 			</div>
 		</div>
 	);
